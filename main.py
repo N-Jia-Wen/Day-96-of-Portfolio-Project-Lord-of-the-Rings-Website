@@ -1,9 +1,8 @@
-from flask import Flask, render_template, session, request, redirect, url_for
+from flask import Flask, render_template, request
 from flask_bootstrap import Bootstrap5
 import requests
 import os
 import ast
-from pprint import pprint
 
 # The API returns first page unless specified, and each page is limited to 1000 entries
 ENDPOINT_URL = "https://the-one-api.dev/v2"
