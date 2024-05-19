@@ -1,0 +1,49 @@
+{% include "header.html" %}
+
+<main>
+    <div class="container">
+    <h2 class="py-5"><u>Information for the character "{{ character_data.name }}":</u></h2>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <ul>
+              {% for key in character_data: %}
+                {% if key != "_id": %}
+                  {% if character_data.get(key) is not none: %}
+
+                    {% if key == "wikiUrl": %}
+                      <li>{{ key.title() }}: <a href="{{ character_data.get(key) }}">Link</a></li>
+                    {% else: %}
+                      <li>{{ key.title() }}: {{ character_data.get(key) }}</li>
+                    {% endif %}
+
+                  {% else: %}
+                    <li>{{ key.title() }}: No data</li>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+
+          </ul>
+        </div>
+
+      </div>
+
+      {% if character_quotes: %}
+      <h2 class="py-5"><u>Quotes by the character "{{ character_data.name }}":</u></h2>
+      <div class="row">
+        <div class="col">
+          <ul>
+              {% for quote in character_quotes: %}
+                <li>{{ quote.dialog }}</li>
+              {% endfor %}
+          </ul>
+        </div>
+
+      </div>
+      {% endif %}
+    </div>
+
+
+</main>
+
+{% include "footer.html" %}

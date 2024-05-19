@@ -1,0 +1,22 @@
+{% include "header.html" %}
+
+<main>
+    <div class="container">
+    <h2 class="py-5"><u>Chapters in the book "{{ book_name }}":</u></h2>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <ul>
+              {% for chapter in chapter_data: %}
+              <li>{{ chapter.chapterName }}</li>
+              {% endfor %}
+
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+</main>
+
+{% include "footer.html" %}

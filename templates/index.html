@@ -1,0 +1,96 @@
+{% include "header.html" %}
+
+<main>
+
+  <section class="py-5 text-center container" id="home">
+    <div class="row py-lg-5">
+      <div class="col-lg-6 col-md-8 mx-auto">
+        <h1 class="fw-light">Welcome to my Lord Of The Rings website!</h1>
+        <p class="lead text-body-secondary">Here you can find information on the various books, movie adaptations, characters, and quotes within the Lord Of The Rings series. The data for this website was provided by the very talented people who made <a href="https://the-one-api.dev/about">The One API</a>.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="album py-5 bg-body-tertiary">
+
+    <div class="container">
+    <h2 class="py-5" id="books"><u>Books:</u></h2>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for book in book_data: %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="/static/img/{{ book.name }} book cover.jpg"/>
+            <div class="card-body">
+              <p class="card-text">{{ book.name }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{ url_for('book_info', _id=book._id, book_name=book.name) }}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <h2 class="py-5" id="movies"><u>Movies:</u></h2>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for movie in movies_data: %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="/static/img/{{ movie.name }} film.jpg"/>
+            <div class="card-body">
+              <p class="card-text">{{ movie.name }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{ url_for('movie_info', _id=movie._id, movie_data=movie) }}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
+
+  <div class="album py-5 bg-body-tertiary">
+    <div class="container">
+      <h2 class="py-5" id="characters"><u>Characters:</u></h2>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for character in characters_data: %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img src="/static/img/Lord Of The Rings generic.png"/>
+            <div class="card-body">
+              <p class="card-text">{{ character.name }}</p>
+              <div class="d-flex justify-content-between align-items-center">
+                <div class="btn-group">
+                  <a href="{{ url_for('character_info', _id=character._id, character_data=character) }}" type="button" class="btn btn-sm btn-outline-secondary">View</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+
+
+      </div>
+    </div>
+  </div>
+
+
+</main>
+
+{% include "footer.html" %}

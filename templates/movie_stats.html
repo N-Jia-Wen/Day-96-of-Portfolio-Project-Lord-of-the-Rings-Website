@@ -1,0 +1,24 @@
+{% include "header.html" %}
+
+<main>
+    <div class="container">
+    <h2 class="py-5"><u>Statistics for the movie "{{ movie_data.name }}":</u></h2>
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        <div class="col">
+          <ul>
+              <li>Runtime: {{ movie_data.runtimeInMinutes // 60 }}h {{ movie_data.runtimeInMinutes % 60 }}min</li>
+              <li>Movie budget: ${{ movie_data.budgetInMillions }} million</li>
+              <li>Box office revenue: ${{ movie_data.boxOfficeRevenueInMillions }} million</li>
+              <li>Academy award wins: {{ movie_data.academyAwardWins }}</li>
+              <li>Academy award nominations: {{ movie_data.academyAwardNominations }}</li>
+              <li>Rotten Tomatoes score: {{ movie_data.rottenTomatoesScore }}%</li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+
+</main>
+
+{% include "footer.html" %}
